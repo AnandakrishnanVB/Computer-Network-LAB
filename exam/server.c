@@ -8,7 +8,7 @@
 // 8. Close the server socket using close().
 
 #include <stdio.h>
-#include <unistd.h> //The function 'close()' is used from this header file to close the socket after use.
+#include <unistd.h> //The function 'close()' is used from this header file to close the socket after use.Also the read() and write().
 #include <arpa/inet.h>
 
 int main()
