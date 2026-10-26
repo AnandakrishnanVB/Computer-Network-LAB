@@ -21,7 +21,7 @@ int main()
 
     struct sockaddr_in server;
     // This stored the networks address and port details.
-    socklent_t addr_len = sizeof(server); // this is used in the accept part.
+    socklen_t addr_len = sizeof(server); // this is used in the accept part.
 
     server_socket = socket(AF_INET, SOCK_STREAM, 0); // Created a TCP socket using TCP.
     // AF_INET = IPV4 address
@@ -37,8 +37,10 @@ int main()
     // The bind requires the address in 'struct sockaddr' type, that why we converting it.
 
     listen(server_socket, 5); // Put the socket into listeing mode.
+    printf("Server running..\n");
 
-    client_socket = accept(server_socket, (struct sockaddr *)&server, &addr_len);
+    // client_socket = accept(server_socket, (struct sockaddr *)&server, &addr_len);
+    client_socket = accept(server_socket, NULL, NULL);
     // accept() Waits for a client and returns a new socket for communicating with that client.
 
     // Now read the value.
@@ -47,7 +49,7 @@ int main()
     int fact = 1;
     for (int i = 1; i <= n; i++)
     {
-        fact *i;
+        fact *= i;
     }
     // Write back to the client.
     write(client_socket, &fact, sizeof(fact));

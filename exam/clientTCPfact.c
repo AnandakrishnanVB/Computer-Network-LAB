@@ -17,7 +17,7 @@ int main()
 
     client_socket = socket(AF_INET, SOCK_STREAM, 0); // IPV4,TCP.
 
-    server.sin_addr = AF_INET;                         // Uses IPV4.
+    server.sin_family = AF_INET;                       // Uses IPV4.
     server.sin_port = htons(8080);                     // Port 8080.
     inet_pton(AF_INET, "127.0.0.1", &server.sin_addr); // It connects to the server running on the same computer.
     // inet_pton( Address_Family(AF_INET), "IP_String"(127.0.0.1), &Destination_Buffer(&server.sin_addr));
@@ -26,13 +26,13 @@ int main()
     connect(client_socket, (struct sockaddr *)&server, sizeof(server));
 
     // Enter the number
-    print("Enter the number:");
+    printf("Enter the number:");
     scanf("%d", &n);
 
     write(client_socket, &n, sizeof(n));
 
     read(client_socket, &fact, sizeof(fact));
 
-    printf("Factorial is %d", fact);
+    printf("Factorial is %d\n", fact);
     close(client_socket);
 }
