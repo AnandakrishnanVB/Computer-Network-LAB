@@ -47,7 +47,7 @@ int main()
                 fclose(fp);
             }
             close(clientfd);
-            exit(0);
+            exit(0); // Really needed or the CPU get mad.
         }
     }
     close(clientfd);
