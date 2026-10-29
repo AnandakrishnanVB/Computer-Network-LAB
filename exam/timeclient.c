@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <arpa/inet.h>
@@ -22,6 +23,6 @@ int main()
     len = sizeof(server_addr);
     sendto(sockfd, buffer, SIZE, 0, (struct sockaddr *)&server_addr, len);
     recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr *)&server_addr, &len);
-    printf(buffer);
+    printf("Time is %s", buffer);
     close(sockfd);
 }

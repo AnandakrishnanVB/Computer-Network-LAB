@@ -21,14 +21,15 @@ int main()
 
     bind(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr));
 
-    printf("UDP time sserver is running") while (1)
+    printf("UDP time sserver is running");
+    while (1)
     {
         len = sizeof(client_addr);
         recvfrom(sockfd, buffer, SIZE, 0, (struct sockaddr *)&client_addr, &len);
         time_t cur_time;
         time(&cur_time);
         strcpy(buffer, ctime(&cur_time));
-        sendto(sockfd, buffer, sizeof(buffer), (struct sockadr *)&client_addr, len);
+        sendto(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr *)&client_addr, len);
     }
-    close(sockfd)
+    close(sockfd);
 }
