@@ -4,6 +4,7 @@
 
 #define PORT 8000
 // factorial
+// Accept factorial requests over TCP.
 int main()
 {
     int server_fd, client_fd, num;

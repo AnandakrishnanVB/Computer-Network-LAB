@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// Count characters entered by the user.
 int main()
 {
     char buffer[100];

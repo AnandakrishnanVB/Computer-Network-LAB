@@ -4,6 +4,7 @@
 
 #define PORT 8000
 
+// Process square requests over UDP.
 int main()
 {
     int server_fd, num;

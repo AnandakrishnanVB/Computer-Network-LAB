@@ -3,6 +3,7 @@
 
 #define SIZE 100
 
+// Reverse the entered string.
 int main()
 {
     char buffer[SIZE];
